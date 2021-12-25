@@ -18,7 +18,7 @@
     messagingSenderId: "454289857986",
     appId: "1:454289857986:web:6a71e33d68e99fed7b0a5b",
     measurementId: "G-166CYKYCNR"
-   };
+   };  
 firebase.initializeApp(config);
 
   function save_user(){
@@ -37,6 +37,9 @@ firebase.initializeApp(config);
 }
 
 
+
+
+
 function checkpassword(){
 var ref = firebase.database().ref("/users/"+document.getElementById('signin-username').value);
 
@@ -47,7 +50,7 @@ ref.on("value", function(snapshot) {
 
    if( document.getElementById('signin-username').value == pass ){
     //location.replace();
-    localStorage.setItem("username", document.getElementById('signup-username').value);
+    localStorage.setItem("username", document.getElementById('signin-username').value);
     //window.alert("we good!");
     location.replace("user.html");
    }

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/view_collection.css">
+  <title>My Website</title>
+  <script>
+      var url = window.location.search;
+      var split_url = url.split('=');
+      var viewed_user = split_url[1];
+      document.title = viewed_user;
+      
+      
+      function show()
+      {
+        document.getElementById("display1").innerHTML = viewed_user;
+        document.getElementById("username_display").innerHTML = viewed_user;
+        drawcontent();
+      }
+
+
+  </script>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+ <script>
+   // Initialize Firebase
+
+   var config = {
+   apiKey: "AIzaSyC0n9Hc-ohClvYXY8Bza4Em4sls8Q_m_rU",
+    authDomain: "project-5470969579820465499.firebaseapp.com",
+    databaseURL: "https://project-5470969579820465499-default-rtdb.firebaseio.com",
+    projectId: "project-5470969579820465499",
+    storageBucket: "project-5470969579820465499.appspot.com",
+    messagingSenderId: "454289857986",
+    appId: "1:454289857986:web:6a71e33d68e99fed7b0a5b",
+    measurementId: "G-166CYKYCNR"
+
+};
+
+   firebase.initializeApp(config);
+ </script>
+
+<script>
+
+var counter = 0; //counts nfts owned by a user    
+var databaseRef = firebase.database().ref('images/'+localStorage.getItem("username")+'/');
+  
+  databaseRef.once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+   var childKey = childSnapshot.key;
+   var childData = childSnapshot.val();
+   
+   
+
+ //  cellId.appendChild(document.createTextNode(childKey));
+  // cellName.appendChild(document.createTextNode(childData.user_name));
+  //console.log(childData);
+  var img_name = childData["img_name"];
+  console.log(childData["img_name"]);
+  var img_url_object = childData["img_url"];
+  var img_url = img_url_object["url"];
+  console.log(img_url);
+  counter++ ;
+  console.log("This user has "+counter); 
+    });
+  });
+
+ 
+
+
+
+
+</script>
+
+</head>
+
+<body onload="show()">
+  <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <h1><span id="display1"></span></h1>
+          </a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="home.html" data-after="Home">Home</a></li>
+            <li><a href="getlisted.html" data-after="Service">Get Listed</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+
+
+  <!-- Service Section -->
+  <section id="services">
+    <div class="services container">
+      <div class="service-top">
+        <h1 class="section-title"><span id="username_display"></span></h1>
+        <p id="username_display">NFT Collection</p>
+      </div>
+      <!--from here-->
+      <span id="display_cards"></span>
+
+
+
+
+      <!--to here-->
+      </div>
+
+
+
+
+
+  
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container">
+      <div class="brand">
+        <h1><span>M</span>et <span>ri</span>X</h1>
+      </div>
+      
+      
+      <p>Metrix © 2021. All rights reserved</p>
+    </div>
+  </section>
+  <!-- End Footer -->
+
+  <script src="js/view_collection.js"></script>
+</body>
+
+</html>

@@ -92,7 +92,7 @@ task.on('state_changed',
 		 		// SELECTING THE BODY AND APPENDING AN IMG TAG WITH  THE URL
 		 	//	document.querySelector('body').innerHTML =`<img src=${url} />`
 		 	 url_data = {url};
-              window.alert(url_data["url"]);
+            //  window.alert(url_data["url"]);
               console.log(url_data["url"]);
               save_user();
         })
@@ -127,7 +127,7 @@ task.on('state_changed',
           </div>
           <ul>
             <li><a href="index.html" data-after="Home">Home</a></li>
-            <li><a href="#projects" data-after="Projects">Copy your share link</a></li>
+            <li><a href="javascript:sharelink();"  data-after="Projects">Copy your share link</a></li>
           </ul>
         </div>
       </div>
@@ -154,5 +154,5 @@ task.on('state_changed',
       </form>
       <a href="#projects" type="button" class="cta" onclick="uploadimg()">Done</a>
   </body>
-
+  <script src="js/user.js"></script>
 </html>
