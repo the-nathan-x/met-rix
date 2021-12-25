@@ -48,7 +48,7 @@ ref.on("value", function(snapshot) {
    var data = snapshot.val();
    var pass = (data["user_pass"]);
 
-   if( document.getElementById('signin-username').value == pass ){
+   if( document.getElementById('signin-password').value == pass ){
     //location.replace();
     localStorage.setItem("username", document.getElementById('signin-username').value);
     //window.alert("we good!");
@@ -141,7 +141,7 @@ ref.on("value", function(snapshot) {
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Create account" onclick="save_user()">
+						<input class="full-width has-padding" type="submit" value="Create account" onclick="save_user">
 					</p>
 				</form>
 
