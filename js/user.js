@@ -26,7 +26,7 @@ menu_item.forEach((item) => {
 
 
 function sharelink(){
-    var link = "https://the-nathan-x.github.io/met-rix/view_collection.html?user="+localStorage.getItem("username");
+    var link = "http://paymara.lovestoblog.com/view_collection.html?user="+localStorage.getItem("username");
     navigator.clipboard.writeText(link);
     window.alert("link copied successfully!");
 }

@@ -8,8 +8,8 @@
   <title>My Website</title>
   <script>
       var url = window.location.search;
-      var split_url = url.split('=');
-      var viewed_user = split_url[1];
+      var split_url = url.split(/[=&]+/);
+      var viewed_user = split_url[1]; 
       document.title = viewed_user;
       
       
