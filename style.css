@@ -757,3 +757,15 @@ p {
 	justify-content: center;
 	font-size: 48px;
   }
+
+  .button-pay {
+	background-color: crimson;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 10px;
+  }
